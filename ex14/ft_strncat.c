@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sintombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/16 16:52:09 by sintombe          #+#    #+#             */
-/*   Updated: 2020/07/16 16:52:14 by sintombe         ###   ########.fr       */
+/*   Created: 2020/07/16 16:49:43 by sintombe          #+#    #+#             */
+/*   Updated: 2020/07/16 17:02:42 by sintombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 
-void        ft_putchar(char c){ write(1,&c,1);}
-char        *ft_strcpy(char *dest, char *src)
+
+char   *ft_strncat(char *dest, char *src,int nb)
 {
-	// take a pointer pointing to the beginning of destination string
-    char *pointer = dest;
-	// copy the C-string pointed by source into the array
-    while(*src != '\0')
-    {
-        *dest =*src;
-       dest++;
-       src++;
-    }
-    *dest = '\0';
+    
+    // make poiter point to the end of dest string
+char *pointer = dest;
+
+   while(*dest !='\0'){
+        dest++;
+   }
+    
+    while (nb--)
+        if (!(*dest++ = *src++))
+            return pointer;
+    *dest = 0;
     return pointer;
-    
 }
-int main(void)
-{
-   
-   return 0;
-    
-
-}
-
 

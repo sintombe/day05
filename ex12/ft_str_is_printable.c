@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sintombe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/16 16:52:09 by sintombe          #+#    #+#             */
-/*   Updated: 2020/07/16 16:52:14 by sintombe         ###   ########.fr       */
+/*   Created: 2020/07/16 17:01:27 by sintombe          #+#    #+#             */
+/*   Updated: 2020/07/16 17:01:33 by sintombe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 
-void        ft_putchar(char c){ write(1,&c,1);}
-char        *ft_strcpy(char *dest, char *src)
+
+
+int       ft_str_is_printable(char *str)
 {
-	// take a pointer pointing to the beginning of destination string
-    char *pointer = dest;
-	// copy the C-string pointed by source into the array
-    while(*src != '\0')
+    int i;
+    i=0;
+ 
+    while(str[i] != '\0')
     {
-        *dest =*src;
-       dest++;
-       src++;
+    if(str[i] >= 32 && str[i] <=127)
+    
+    {
+        
+        return 1;
+        
     }
-    *dest = '\0';
-    return pointer;
-    
+    else
+     {
+        return 0;
+     }
+    }
 }
-int main(void)
-{
-   
-   return 0;
-    
-
-}
-
-
